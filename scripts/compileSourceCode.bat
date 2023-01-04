@@ -1,4 +1,11 @@
 @echo off
+rem 设置当前脚本以管理员身份运行
+%1 mshta vbscript:CreateObject("Shell.Application").ShellExecute("cmd.exe","/c %~s0 ::","","runas",1)(window.close)&&exit
+cd /d "%~dp0"
+
+rem rt_debug.jar需要存放的位置
+set "RT_DEBUG_ENDORSED_DIR=%JAVA_HOME%\jre\lib\endorsed"
+if exist "%RT_DEBUG_DIR%\rt_debug.jar" del "%RT_DEBUG_ENDORSED_DIR%\rt_debug.jar"
 
 rem 由于直接运行不能创建endorsed文件夹，必须使用管理员运行，又因为使用管理员运行当前目录会变，所以先切换到脚本所在文件夹
 cd "C:\ideaProjects3\jdk\scripts"
@@ -18,9 +25,6 @@ rem jdklib目录（编译代码要用的）
 rem set "LIB_PATH=%JAVA_HOME%\jre\lib\rt.jar;%JAVA_HOME%\lib\tools.jar"
 rem 循环的时候会根据空格进行切割字符串，如果放在Program Files会导致分割字符串有问题
 set "LIB_PATH=%CURRENT_DIR%\rt.jar %CURRENT_DIR%\tools.jar"
-
-rem rt_debug.jar需要存放的位置
-set "RT_DEBUG_ENDORSED_DIR=%JAVA_HOME%\jre\lib\endorsed"
 
 rem 显示JAVA_HOME变量
 rem echo "%JAVA_HOME%"
