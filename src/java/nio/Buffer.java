@@ -182,9 +182,21 @@ public abstract class Buffer {
         Spliterator.SIZED | Spliterator.SUBSIZED | Spliterator.ORDERED;
 
     // Invariants: mark <= position <= limit <= capacity
+    /**
+     * 标记
+     */
     private int mark = -1;
+    /**
+     * 位置，下一个要被读或写的元素的索引，每次读写缓冲区数据时都会改变该值，为下次读写做准备。
+     */
     private int position = 0;
+    /**
+     * 表示缓冲区的当前终点，不能对缓冲区超过极限的位置进行读写操作。且极限是可以修改的。
+     */
     private int limit;
+    /**
+     *  容量，即可以容纳的最大数据量；在缓冲区创建时被设定并且不能改变
+     */
     private int capacity;
 
     // Used only by direct buffers
@@ -354,7 +366,9 @@ public abstract class Buffer {
      * @return  This buffer
      */
     public final Buffer flip() {
+        // 读/写数据不能超过position
         limit = position;
+        //
         position = 0;
         mark = -1;
         return this;

@@ -62,7 +62,6 @@ jar cf0 rt_debug.jar *
 
 rem 把新生成的jar包放到JDK_HOME\jre\lib\endorsed中（如果没有endorsed文件夹，则手动创建）
 if not exist "%RT_DEBUG_ENDORSED_DIR%" mkdir "%RT_DEBUG_ENDORSED_DIR%"
-pause
 copy /y "%RT_DEBUG_DIR%\rt_debug.jar" "%RT_DEBUG_ENDORSED_DIR%\rt_debug.jar"
 
 rem pause&goto:eof
@@ -76,8 +75,9 @@ rem for %%a in ("%~1") do (echo %CURRENT_DIR%\%%~nxa)
 for %%a in ("%~1") do (
 set "my_path=%CURRENT_DIR%\%%~nxa"
 )
-goto:eof
 
+goto:eof
+echo compile success
 pause
 
 rem 参考链接
