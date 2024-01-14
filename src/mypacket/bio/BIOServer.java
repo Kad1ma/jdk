@@ -40,7 +40,7 @@ public class BIOServer {
             //监听，等待客户端连接
             System.out.println("等待连接");
             Socket accept = serverSocket.accept();
-            System.out.println("连接到一个客户端");
+            System.out.println("连接到一个客户端"+ accept);
             //创建一个线程，与之通讯（单独写一个方法）
             executorService.execute(() -> {
                 // 可以和客户端通讯
@@ -56,26 +56,20 @@ public class BIOServer {
 
             // 通过Socket获取输入流
             InputStream inputStream = accept.getInputStream();
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+
 
             // 循环的读取客户端发送的数据
             while (true) {
                 System.out.println("线程信息3 id=" + Thread.currentThread().getName() + "名字 =" + Thread.currentThread().getName());
-                System.out.println("read........");
+                System.out.println("r   ead........");
                 int read = inputStream.read(bytes);
                 System.out.println("reading........");
-
-                    String line;
-                while ((line = bufferedReader.readLine()) != null) {
-                    System.out.println(line);
+                if (read != -1) {
+                    // 输出客户端发送的数据
+                    System.out.println(new String(bytes, 0, read));
+                } else {
+                    break;
                 }
-
-//                if (read != -1) {
-//                    // 输出客户端发送的数据
-//                    System.out.println(new String(bytes, 0, read));
-//                } else {
-//                    break;
-//                }
             }
         } catch (Exception e) {
             System.out.println(e);
