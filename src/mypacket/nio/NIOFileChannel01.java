@@ -21,7 +21,7 @@ public class NIOFileChannel01 {
         // 将 str 放入byteBuffer
         byteBuffer.put(str.getBytes());
 
-        // 对byteBuffer进行反转
+         // 对byteBuffer进行反转
         byteBuffer.flip();
 
         // 将byteBuffer的数据写入到channel
@@ -30,3 +30,4 @@ public class NIOFileChannel01 {
         fileOutputStream.close();
      }
 }
+

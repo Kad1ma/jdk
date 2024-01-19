@@ -8,10 +8,10 @@ public class NIOFileChannel02 {
     public static void main(String[] args) throws IOException {
         // 创建文件的输入流
         File file = new File("d:\\file01.txt");
-        FileInputStream fileOutputStream = new FileInputStream(file);
+        FileInputStream fileInputStream = new FileInputStream(file);
 
         // 通过输入流对象获取对应的FileChannel -> 实际类型 FileChannelImpl
-        FileChannel fileChannel = fileOutputStream.getChannel();
+        FileChannel fileChannel = fileInputStream.getChannel();
 
         // 创建缓冲区
         ByteBuffer byteBuffer = ByteBuffer.allocate((int) file.length());
@@ -21,6 +21,6 @@ public class NIOFileChannel02 {
 
         // 将byteBuffer的字节数据转成String
         System.out.println(new String(byteBuffer.array()));
-         fileOutputStream.close();
+         fileInputStream.close();
     }
 }

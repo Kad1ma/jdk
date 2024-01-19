@@ -86,7 +86,7 @@ rem 如何从文件全路径中提取文件名？ https://blog.csdn.net/techfiel
 rem 常用匹配模式 https://www.jb51.net/article/97588.htm
 rem for循环中无法改变变量的值 https://zhidao.baidu.com/question/140583844767053805.html
 rem https://www.cnblogs.com/mq0036/p/3478108.html
-
+rem https://blog.csdn.net/u010999809/article/details/102762142
 
 rem 注意！！！！
 rem 如果创建不了endorsed文件夹，需自己手动创建并移动文件 或者 管理员方式运行

@@ -32,7 +32,7 @@ import java.net.SocketAddress;
 import java.nio.channels.spi.AbstractSelectableChannel;
 import java.nio.channels.spi.SelectorProvider;
 
-/**
+ /**
  * A selectable channel for stream-oriented listening sockets.
  *
  * <p> A server-socket channel is created by invoking the {@link #open() open}

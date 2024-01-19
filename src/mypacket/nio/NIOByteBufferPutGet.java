@@ -15,10 +15,10 @@ public class NIOByteBufferPutGet {
 
         buffer.flip();
 
-        System.out.println(buffer.getChar());
         System.out.println(buffer.getInt());
         System.out.println(buffer.getLong());
-        System.out.println(buffer.getLong());
+        System.out.println(buffer.getChar());
+        System.out.println(buffer.getShort());
 
     }
 }

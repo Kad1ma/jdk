@@ -332,7 +332,7 @@ public abstract class IntBuffer
     public static IntBuffer allocate(int capacity) {
         if (capacity < 0)
             throw new IllegalArgumentException();
-        return new HeapIntBuffer(capacity, capacity);
+         return new HeapIntBuffer(capacity, capacity);
     }
 
     /**
