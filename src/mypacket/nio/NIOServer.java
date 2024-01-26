@@ -6,10 +6,11 @@ import java.nio.ByteBuffer;
 import java.nio.channels.*;
 import java.util.Iterator;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 public class NIOServer {
 
-     public static void main(String[] args) throws IOException {
+     public static void main(String[] args) throws IOException, InterruptedException {
         // 创建ServerSocketChannel -> ServerScket
         ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
 
@@ -49,13 +50,14 @@ public class NIOServer {
                     // 给该客户端生成一个SocketChannel
                     SocketChannel socketChannel = serverSocketChannel.accept();
                     socketChannel.configureBlocking(false);
-                    System.out.println("客户端连接成功，生成了一个 socketChannel" + socketChannel.hashCode());
+                    System.out.println("客户端连接成功1，生成了一个 socketChannel" + socketChannel.hashCode());
                     // 将socketChannel 注册到selector, 关注事件为OP_READ，同时给该socketChannel关联一个buffer
                     socketChannel.register(selector,SelectionKey.OP_READ, ByteBuffer.allocate(1024));
                 }
 
             // 发生OP_READ
                else if (key.isReadable()) {
+                    System.out.println("123");
             // 通过key反向获取对应channel
                     SocketChannel channel = (SocketChannel) key.channel();
 
