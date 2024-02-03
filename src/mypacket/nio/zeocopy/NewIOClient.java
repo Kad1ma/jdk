@@ -22,6 +22,6 @@ public class NewIOClient {
         // 在linux下 一个transferTo方法就可以完成传输
         // 在windows下，一次调用transferTo 只能发送8m，就需要分段传输文件，而且要注意传输时的位置
 
-        fileChannel.transferTo()
+//        fileChannel.transferTo()
     }
 }
