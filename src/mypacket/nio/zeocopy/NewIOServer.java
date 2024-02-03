@@ -30,6 +30,7 @@ public class NewIOServer {
 
                 } catch (Exception e) {
                     e.printStackTrace();
+//                    break;
                 }
 
                 // 倒带 position = 0 mark 作废
