@@ -40,7 +40,7 @@ public class NettyServer {
 
             // 绑定一个端口并且同步,生成了一个CahnnelFuture对象
             // 启动服务器（并绑定端口）
-            ChannelFuture channelFuture = bootstrap.bind(6668).sync();
+            final ChannelFuture channelFuture = bootstrap.bind(6668).sync();
 
             // 给chaneelFuture注册监听器，监控我们关心的事件
             channelFuture.addListener(new ChannelFutureListener() {
