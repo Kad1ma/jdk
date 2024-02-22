@@ -32,6 +32,8 @@ public class MyServerHandler extends ChannelInboundHandlerAdapter {
             }
             System.out.println( ctx.channel().remoteAddress() + "超时事件发生" + eventType);
             System.out.println("服务器进行响应处理");
+            // 如果空闲发生，关闭通道
+            ctx.channel().close();
         }
     }
 }
